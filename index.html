@@ -6,6 +6,7 @@
   <meta charset="UTF-8">
   <title>Gems | Nam Kim</title>
   <!-- Reference to css file -->
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
   <script src="https:code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>
   <!-- <script type="text/javascript"> -->
 </head>
@@ -55,21 +56,29 @@
      </p>
 
      </div>
-
-    <div id="scoretomatch" style="background: grey">
-
+    <div id="score_container"
+        <div id="scoretomatch"></div>
+        <div id="totalscore"></div>
     </div>
+
 
     <div id="winsandlosses" style="background: pink"></div>
 
     <!-- Display inline block -->
-    <div id="crystal1"></div>
-    <div id="crystal2"></div>
-    <div id="crystal3"></div>
-    <div id="crystal4"></div>
+    <div id="crystal_container">
+      <div class="crystalImage">
+
+      </div>
+
+      <!-- <div id="crystal1"></div>
+      <div id="crystal2"></div>
+      <div id="crystal3"></div>
+      <div id="crystal4"></div> -->
+
+    </div>
     <!-- //////////////////////// -->
 
-    <div id="totalscore"></div>
+
 
 
     <script type="text/javascript">
@@ -112,8 +121,8 @@
                     crystalImageLinks[0]
                 );
                 imageCrystal1.attr('alt', 'crystals');
-                imageCrystal1.addClass('crystalImage1');
-                $('#crystal1').append(imageCrystal1);
+                imageCrystal1.addClass('crystalImage');
+                $('#crystal_container').append(imageCrystal1);
 
               var imageCrystal2 = $('<img>');
                 imageCrystal2.attr('data-num', crystalValues[1]);
@@ -122,8 +131,8 @@
                     crystalImageLinks[1]
                 );
                 imageCrystal2.attr('alt', 'crystals');
-                imageCrystal2.addClass('crystalImage2');
-                $('#crystal2').append(imageCrystal2);
+                imageCrystal2.addClass('crystalImage');
+                $('#crystal_container').append(imageCrystal2);
 
               var imageCrystal3 = $('<img>');
                 imageCrystal3.attr('data-num', crystalValues[2]);
@@ -132,8 +141,8 @@
                     crystalImageLinks[2]
                 );
                 imageCrystal3.attr('alt', 'crystals');
-                imageCrystal3.addClass('crystalImage3');
-                $('#crystal3').append(imageCrystal3);
+                imageCrystal3.addClass('crystalImage');
+                $('#crystal_container').append(imageCrystal3);
 
               var imageCrystal4 = $('<img>');
                 imageCrystal4.attr('data-num', crystalValues[3]);
@@ -142,8 +151,29 @@
                     crystalImageLinks[3]
                 );
                 imageCrystal4.attr('alt', 'crystals');
-                imageCrystal4.addClass('crystalImage4');
-                $('#crystal4').append(imageCrystal4);
+                imageCrystal4.addClass('crystalImage');
+                $('#crystal_container').append(imageCrystal4);
+
+
+              $('.crystalImage').on(
+                'click', function() {
+
+                  userScore = userScore + parseInt($(this).data('num'));
+                  console.log(userScore);
+                  // document.querySelector("#totalscore").innerHTML = "<h2>Current score: </h2>" + userScore;
+
+                  if (userScore == Scoretobeat) {
+                    alert('You won');
+                    win_count++;
+                    newGame();
+                  } else if (userScore > Scoretobeat) {
+                    alert('You lost!');
+                    loss_count++;
+                    newGame();
+                  }
+
+                }
+              );
 
 
 
@@ -155,8 +185,8 @@
 
 
 
-        $("#scoretomatch").html(Scoretobeat);
-         document.querySelector("#scoretomatch").innerHTML = Scoretobeat;
+        // $("#scoretomatch").html("<h2>Score to match: </h2>" + Scoretobeat);
+        document.querySelector("#scoretomatch").innerHTML = "<h2>Score to match: </h2>" + Scoretobeat;
 
 
 

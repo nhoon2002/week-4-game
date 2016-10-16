@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Gems | Nam Kim</title>
+  <!-- Reference to css file -->
+  <script src="https:code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>
+  <!-- <script type="text/javascript"> -->
+</head>
+
+<body>
+  <div id="title" style="background: yellow">Crystals Collector!</div>
+
+   <div id="howtoplay" style="background: green">
+     <p>
+       * The player will be shown a random number at the start of the game.
+     </p>
+
+     <p>
+       * When the player clicks on a crystal, it will add a specific amount
+         of points to the player's total score.
+     </p>
+
+     <p>
+       * Your game will hide this amount until the player clicks a crystal.
+     </p>
+
+     <p>
+       * When they do click one, update the player's score counter.
+     </p>
+
+     <p>
+       * The player wins if their total score matches the random number from the beginning of the game.
+     </p>
+
+     <p>
+       * The player loses if their score goes above the random number.
+     </p>
+
+     <p>
+       * The game restarts whenever the player wins or loses.
+     </p>
+
+     <p>
+       * When the game begins again, the player should see a new random number. Also,
+             all the crystals will have four new hidden values. Of course, the user's score
+             (and score counter) will reset to zero.
+     </p>
+
+     <p>
+       * The app should show the number of games the player wins and loses. To that end,
+         do not refresh the page as a means to restart the game.
+     </p>
+
+     </div>
+
+    <div id="scoretomatch" style="background: grey">
+
+    </div>
+
+    <div id="winsandlosses" style="background: pink"></div>
+
+    <!-- Display inline block -->
+    <div id="crystal1"></div>
+    <div id="crystal2"></div>
+    <div id="crystal3"></div>
+    <div id="crystal4"></div>
+    <!-- //////////////////////// -->
+
+    <div id="totalscore"></div>
+
+
+    <script type="text/javascript">
+
+    $(document).ready(
+      function(){
+
+
+        var Scoretobeat;
+
+        var userScore;
+
+        var crystalValues = [];
+        var crystalImageLinks = ["assets/images/jewel1.JPG", "assets/images/jewel2.JPG", "assets/images/jewel3.JPG", "assets/images/jewel4.JPG"]
+        var win_count;
+        var loss_count;
+
+        //resets values
+        function newGame () {
+          //assigns a random integer from [19 - 120]
+          Scoretobeat = Math.floor(Math.random() * (120-19+1)) + 19;
+          userScore = 0;
+
+
+          for (var i = 0; i < 4; i++) {
+            //assigns a random integer from [1-12]
+            crystalValues[i] = Math.floor(Math.random() * (12-1+1)) + 1;
+          }
+
+        }
+
+        newGame();
+        console.log(Scoretobeat, userScore, crystalValues);
+
+
+              var imageCrystal1 = $('<img>');
+                imageCrystal1.attr('data-num', crystalValues[0]);
+                imageCrystal1.attr(
+                    'src',
+                    crystalImageLinks[0]
+                );
+                imageCrystal1.attr('alt', 'crystals');
+                imageCrystal1.addClass('crystalImage1');
+                $('#crystal1').append(imageCrystal1);
+
+              var imageCrystal2 = $('<img>');
+                imageCrystal2.attr('data-num', crystalValues[1]);
+                imageCrystal2.attr(
+                    'src',
+                    crystalImageLinks[1]
+                );
+                imageCrystal2.attr('alt', 'crystals');
+                imageCrystal2.addClass('crystalImage2');
+                $('#crystal2').append(imageCrystal2);
+
+              var imageCrystal3 = $('<img>');
+                imageCrystal3.attr('data-num', crystalValues[2]);
+                imageCrystal3.attr(
+                    'src',
+                    crystalImageLinks[2]
+                );
+                imageCrystal3.attr('alt', 'crystals');
+                imageCrystal3.addClass('crystalImage3');
+                $('#crystal3').append(imageCrystal3);
+
+              var imageCrystal4 = $('<img>');
+                imageCrystal4.attr('data-num', crystalValues[3]);
+                imageCrystal4.attr(
+                    'src',
+                    crystalImageLinks[3]
+                );
+                imageCrystal4.attr('alt', 'crystals');
+                imageCrystal4.addClass('crystalImage4');
+                $('#crystal4').append(imageCrystal4);
+
+
+
+
+
+
+
+
+
+
+
+        $("#scoretomatch").html(Scoretobeat);
+         document.querySelector("#scoretomatch").innerHTML = Scoretobeat;
+
+
+
+
+
+
+
+
+
+
+
+      }
+    )
+
+
+
+
+
+
+
+
+</script>
+
+
+</body>
+
+
+</html>

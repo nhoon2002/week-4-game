@@ -6,7 +6,7 @@
 
 #crystal_container {
   background: black;
-  position: fixed;
+  position: absolute;
   bottom: 0;
 }
 

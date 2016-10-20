@@ -4,32 +4,68 @@
   height: 10%;
 }*/
 
+body {
+  background-image: url("../images/weather.png");
+}
+
+
+#title {
+  background-color: orange;
+  color: white;
+  width: 300px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-align: center;
+}
+
+#howtoplay {
+  width: 75%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: #FEF5E7;
+  color: green;
+}
+
+.crystalImage {
+  height: 120px;
+  width: 25%;
+}
+
 #crystal_container {
-  background: black;
-  position: absolute;
-  bottom: 0;
+  margin-top: 20px;
+  background: white;
+  height: 120px;
+  width:568px;
+
 }
 
 #score_container {
-  clear: both;
+  margin-top: 20px;
+  height: 150px;
+  width: 620px;
 
 
 }
 #scoretomatch {
-  width: 30%;
-  height: 200px;
+  width: 300px;
+  height: 100%;
   background-color: grey;
   text-align: center;
-
   float: left;
+  margin-right: 10px;
 }
 
 #totalscore {
-  width: 30%;
-  height: 200px;
-  background-color: grey;
+  width: 300px;
+  height: 100%;
+  background-color: #7DCEA0;
   text-align: center;
-
   float: left;
 
+}
+
+#winsandlosses {
+  height: 70px;
+  width: 100px;
+  background-color: pink;
 }
